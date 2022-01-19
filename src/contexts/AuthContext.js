@@ -1,34 +1,34 @@
-// import React, { useContext, useState, useEffect } from 'react';
-// import { projectAuth } from '../firebase/config';
+import React, { useContext, useState, useEffect } from 'react';
+import { projectAuth } from '../firebase/config';
 
-// const AuthContext = React.createContext();
+const AuthContext = React.createContext();
 
-// export function useAuth() {
-//   return useContext(AuthContext);
-// }
+export function useAuth() {
+  return useContext(AuthContext);
+}
 
-// export function AuthProvider({ children }) {
-//   const [currentUser, setCurrentUser] = useState();
-//   const [loading, setLoading] = useState(true);
+export function AuthProvider({ children }) {
+  const [currentUser, setCurrentUser] = useState();
+  const [loading, setLoading] = useState(true);
 
-//   function login(email, password) {}
+  function login(email, password) {}
 
-//   useEffect(() => {
-//     const unsubscribe = projectAuth.onAuthStateChanged((user) => {
-//       setCurrentUser(user);
-//       setLoading(false);
-//     });
+  useEffect(() => {
+    const unsubscribe = projectAuth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+      setLoading(false);
+    });
 
-//     return unsubscribe;
-//   }, []);
+    return unsubscribe;
+  }, []);
 
-//   const value = {
-//     currentUser,
-//   };
+  const value = {
+    currentUser,
+  };
 
-//   return (
-//     <AuthContext.Provider value={value}>
-//       {!loading && children}
-//     </AuthContext.Provider>
-//   );
-// }
+  return (
+    <AuthContext.Provider value={value}>
+      {!loading && children}
+    </AuthContext.Provider>
+  );
+}

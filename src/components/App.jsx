@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Board from './Board';
 import Login from './Login';
-
+import Card from 'react-bootstrap/Card';
 function App() {
   return (
     <Container
@@ -13,10 +13,12 @@ function App() {
       style={{ minHeight: '100vh' }}
     >
       <div className="w-100" style={{ maxWidth: '400px' }}>
-        <Routes>
-          <Route exact path="/" element={<Dashboard />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
+        <AuthProvider>
+          <Routes>
+            <Route exact path="/" element={<Dashboard />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </AuthProvider>
       </div>
     </Container>
   );
