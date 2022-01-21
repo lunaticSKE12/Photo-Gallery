@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
+import ProgressBar from './ProgressBar';
 
 const UploadForm = () => {
   const [file, setFile] = useState(null);
@@ -20,12 +21,14 @@ const UploadForm = () => {
   };
 
   return (
-    <Form.Group controlId="formFile" className="mb-3">
-      <Form.Label>Default file input example</Form.Label>
-      <Form.Control type="file" onChange={changeHandler} />
+    <Form.Group controlId="formFile" className="mb-3 ">
+      <Form.Label>
+        <Form.Control type="file" onChange={changeHandler} />
+      </Form.Label>
       <div className="output">
         {error && <div className="error">{error}</div>}
         {file && <div>{file.name}</div>}
+        {file && <ProgressBar file={file} setFile={setFile} />}
       </div>
     </Form.Group>
   );
