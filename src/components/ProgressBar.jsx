@@ -3,8 +3,8 @@ import useStorage from '../hooks/useStorage';
 import '../index.css';
 import { motion } from 'framer-motion';
 
-const ProgressBar = ({ file, setFile }) => {
-  const { url, progress } = useStorage(file);
+const ProgressBar = ({ file, setFile, date, detail, setDate, setDetail }) => {
+  const { url, progress } = useStorage(file, date, detail);
   // console.log(progress, url);
 
   useEffect(() => {
