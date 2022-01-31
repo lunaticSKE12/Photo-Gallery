@@ -13,10 +13,9 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <Switch>
-          <PrivateRoute exact path="/" component={Dashboard} />
+          <PrivateRoute exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/forgot-password" component={ForgotPassword} />
-          <Route path="/home" component={Home} />
         </Switch>
       </AuthProvider>
     </BrowserRouter>

@@ -4,7 +4,9 @@ const Title = () => {
     <div className="title mt-4">
       <h1>FireGram</h1>
       <h2>Your Pictures</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p>
+        Meow <span style={{ fontSize: '100px' }}>&#128049;</span> &#x1F497;
+      </p>
     </div>
   );
 };
